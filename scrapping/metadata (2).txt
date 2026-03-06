@@ -1,0 +1,59 @@
+URL: https://www.coursera.org/career-academy
+Title: Explore Career Paths: Find Courses and Build Skills by Job Role | Coursera
+Description: Explore career paths and find the right courses to build essential skills. Explore job roles and access resources to start or advance your career.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/business?utm_campaign=website&utm_content=bucket-from-B2C-home-try-business&utm_medium=coursera&utm_source=enterprise
+Title: Online Business Learning Platform | Coursera for Business
+Description: Upskill your team and boost growth with expert-led, AI-powered learning solutions and certification programs on our online platform for business.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/google-career-certificates
+Title: Google Professional Certificate Training Programs | Coursera
+Description: Get professional training from Google. Gain job-ready skills in UX design, project management, data analytics, and IT support. Earn a career certificate.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/explore/ibm-online-courses
+Title: IBM Online Courses | Coursera
+Description: Gain skills with IBM online courses on Coursera. Learn AI, machine learning, data science, cloud computing, business and more from industry experts.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/explore/microsoft-certificates
+Title: Coursera | Online Courses & Credentials From Top Educators. Join for Free | Coursera
+Description: Learn online and earn valuable credentials from top universities like Yale, Michigan, Stanford, and leading companies like Google and IBM. Join Coursera for free and transform your career with degrees, certificates, Specializations, & MOOCs in data science, computer science, business, and dozens of other topics.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/partners/illinois
+Title: University of Illinois Urbana-Champaign Online Courses | Coursera
+Description: The University of Illinois at Urbana-Champaign is a world leader in research, teaching and public engagement, distinguished by the breadth of its programs, broad academic excellence, and internationally renowned faculty and alumni. Illinois ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/partners/openai
+Title: OpenAI Online Courses | Coursera
+Description: OpenAI is an AI research and deployment company whose mission is to ensure that artificial general intelligence benefits all of humanity. We build and operate AI systems like ChatGPT that help people and organizations solve real problems, learn ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/partners/anthropic
+Title: Anthropic Online Courses | Coursera
+Description: Anthropic is an AI safety and research company. We build reliable, interpretable, and steerable AI systems. Learn online and earn valuable credentials from top universities like Yale, Michigan, Stanford, and leading companies like Google and IBM. ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/explore/deep-learning-ai-online-courses
+Title: DeepLearning.AI Online Courses | Coursera
+Description: Explore expert-led online courses to master AI tools, machine learning, deep learning, and more.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/explore/stanford-online-courses
+Title: Stanford University Online Courses | Coursera
+Description: Explore online courses from Stanford University on Coursera and learn about business, nutrition, AI, and more.
+Keywords: N/A
+---

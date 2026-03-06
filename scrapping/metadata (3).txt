@@ -1,0 +1,53 @@
+URL: https://www.coursera.org/professional-certificates/google-ai
+Title: Google AI Professional Certificate | Coursera
+Description: Offered by Google. Build your AI fluency and get more done, faster. Get the AI skills employers are looking for and create 20+ solutions you ... Enroll for free.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/specializations/prompting-essentials-google
+Title: Google Prompting Essentials | Coursera
+Description: Offered by Google. Unlock AI’s Potential with Effective Prompts. Learn from Google experts how to use AI effectively by writing clear and ... Enroll for free.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/specializations/ai-essentials-google
+Title: Google AI Essentials | Coursera
+Description: Offered by Google. Boost Your Productivity with AI Tools. New to AI? Learn from Google experts how AI can help you speed up daily tasks and ... Enroll for free.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/business
+Title: Business Online Courses | Coursera
+Description: Choose from hundreds of free Business courses or pay to earn a Course or Specialization Certificate. Business Specializations and courses help you hone skills critical to success in the modern workplace, with areas of study including ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/data-science
+Title: Data Science Online Courses | Coursera
+Description: Choose from hundreds of free Data Science courses or pay to earn a Course or Specialization Certificate. Data science Specializations and courses teach the fundamentals of interpreting data, performing analyses, and understanding and ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/computer-science
+Title: Computer Science Online Courses | Coursera
+Description: Choose from hundreds of free Computer Science courses or pay to earn a Course or Specialization Certificate. Computer science Specializations and courses teach software engineering and design, algorithmic thinking, human-computer interaction, ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/information-technology
+Title: Information Technology Online Courses | Coursera
+Description: Choose from hundreds of free Information Technology courses or pay to earn a Course or Specialization Certificate. Information Technology (IT) courses and specializations teach cloud computing, cyber security, data management, networking, and ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/personal-development
+Title: Personal Development Online Courses | Coursera
+Description: Choose from hundreds of free Personal Development courses or pay to earn a Course or Specialization Certificate. Personal development Specializations and courses teach strategies and frameworks for personal growth, goal setting, and self ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/health
+Title: Health Online Courses | Coursera
+Description: Choose from hundreds of free Health courses or pay to earn a Course or Specialization Certificate. Health Specializations and courses explore topics related to science, your health, and the health and well being of others. Whether you're ...
+Keywords: N/A
+---

@@ -94,28 +94,41 @@ const MOCK = [
 ]
 
 export default function CoursesPage() {
-    const [courses, setCourses] = useState(MOCK)
+    const [courses, setCourses] = useState([])
     const [loading, setLoading] = useState(true)
     const [search, setSearch] = useState('')
     const [filter, setFilter] = useState('All')
 
-    // Support URL search parameter ?q=
     useEffect(() => {
         window.scrollTo(0, 0)
         const params = new URLSearchParams(window.location.search)
         const initQ = params.get('q')
         if (initQ) setSearch(initQ)
 
-        const apiUrl = import.meta.env.VITE_API_URL
-        if (!apiUrl) { setLoading(false); return } // No backend configured, use mock data
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
         axios.get(`${apiUrl}/api/courses`)
             .then(r => { if (Array.isArray(r.data) && r.data.length) setCourses(r.data) })
             .catch(() => { })
             .finally(() => setLoading(false))
-    }, [])
 
-    const safeCourses = Array.isArray(courses) ? courses : MOCK
-    const filtered = safeCourses.filter(c => {
+        // Reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible')
+                }
+            })
+        }, { threshold: 0.1 })
+
+        if (!loading) {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+            }, 100)
+        }
+        return () => observer.disconnect()
+    }, [loading, filter, search])
+
+    const filtered = courses.filter(c => {
         const matchCat = filter === 'All' || c.category === filter
         const matchText = c.title.toLowerCase().includes(search.toLowerCase()) ||
             (c.description || '').toLowerCase().includes(search.toLowerCase())
@@ -123,42 +136,45 @@ export default function CoursesPage() {
     })
 
     return (
-        <div className="min-h-screen flex flex-col bg-gray-50">
+        <div className="min-h-screen flex flex-col bg-white selection:bg-blue-100 selection:text-blue-900">
             <Navbar />
 
-            <main className="flex-1 pt-[60px] pb-20">
+            <main className="flex-1 pb-20">
 
-                {/* Header Block */}
-                <div className="bg-white border-b border-gray-100 py-12 mb-10">
-                    <div className="max-w-[1400px] mx-auto px-4 md:px-6 text-center">
-                        <h1 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 mb-4">Browse & Learn</h1>
-                        <p className="text-gray-500 max-w-lg mx-auto text-[.95rem] mb-8">
-                            Explore {courses.length} high-quality courses — filter by category or search by topic.
+                {/* ═══════════════ Header Block ═══════════════ */}
+                <div className="grad-blue pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-white/5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+                    <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10 text-center reveal">
+                        <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white mb-6">Course Directory</h1>
+                        <p className="text-blue-100/80 max-w-2xl mx-auto text-lg md:text-xl font-medium mb-12">
+                            Explore {courses.length ? courses.length : 'our'} professional courses crafted by industry-leading institutions and experts.
                         </p>
 
-                        {/* Search Bar */}
-                        <div className="max-w-xl mx-auto relative">
-                            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                            <input type="text" value={search} onChange={e => setSearch(e.target.value)}
-                                placeholder="Search across skills, frameworks, topics…"
-                                className="w-full pl-12 pr-4 py-3.5 rounded-full border border-gray-200 bg-white shadow-sm
-                  text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-shadow"/>
+                        {/* Premium Search Bar */}
+                        <div className="max-w-2xl mx-auto relative group">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl blur opacity-25 group-focus-within:opacity-50 transition-soft" />
+                            <div className="relative">
+                                <svg className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 pointer-events-none"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                <input type="text" value={search} onChange={e => setSearch(e.target.value)}
+                                    placeholder="Search across skills, frameworks, or institutions…"
+                                    className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white border-0 shadow-2xl text-slate-900 placeholder-slate-400 font-medium text-lg focus:ring-0 transition-soft" />
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-                    {/* Filters */}
-                    <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-6 -mt-10 relative z-20">
+                    {/* Filters Pill Scroll */}
+                    <div className="flex flex-wrap items-center justify-center gap-3 mb-12 bg-white p-4 rounded-[2rem] shadow-premium border border-slate-100 reveal">
                         {CATEGORIES.map(c => (
                             <button key={c} onClick={() => setFilter(c)}
-                                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-150
-                  ${filter === c
-                                        ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-white hover:text-blue-600 hover:border-blue-300'}`}>
+                                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-soft
+                                ${filter === c
+                                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-400/30 -translate-y-0.5'
+                                        : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-100'}`}>
                                 {c}
                             </button>
                         ))}
@@ -166,39 +182,42 @@ export default function CoursesPage() {
 
                     {/* Results Count */}
                     {!loading && (
-                        <p className="text-gray-500 text-sm mb-6 pb-4 border-b border-gray-100">
-                            Showing <span className="text-gray-900 font-bold">{filtered.length}</span> course{filtered.length !== 1 ? 's' : ''}
-                            {filter !== 'All' && ` in ${filter}`}
-                            {search && ` matching "${search}"`}
-                        </p>
+                        <div className="flex items-center justify-between mb-10 pb-6 border-b border-slate-100 reveal">
+                            <h3 className="text-slate-400 text-xs font-black uppercase tracking-[0.2em]">
+                                Results: <span className="text-slate-900">{filtered.length} found</span>
+                            </h3>
+                            {filter !== 'All' && (
+                                <button onClick={() => setFilter('All')} className="text-blue-600 text-xs font-bold hover:underline">Clear category filter ×</button>
+                            )}
+                        </div>
                     )}
 
                     {/* Grid */}
                     {loading ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                             {Array(8).fill(0).map((_, i) => (
-                                <div key={i} className="rounded-xl bg-white border border-gray-100 overflow-hidden animate-pulse">
-                                    <div className="h-40 bg-gray-100" />
-                                    <div className="p-4 space-y-3">
-                                        <div className="h-4 bg-gray-100 rounded w-3/4" />
-                                        <div className="h-3 bg-gray-50 rounded w-1/2" />
-                                        <div className="h-8 bg-gray-50 rounded w-full mt-4" />
+                                <div key={i} className="rounded-3xl bg-slate-50 border border-slate-100 overflow-hidden animate-pulse">
+                                    <div className="h-44 bg-slate-100" />
+                                    <div className="p-6 space-y-4">
+                                        <div className="h-4 bg-slate-100 rounded-lg w-3/4" />
+                                        <div className="h-3 bg-slate-100 rounded-lg w-1/2" />
+                                        <div className="h-10 bg-slate-100 rounded-xl w-full mt-6" />
                                     </div>
                                 </div>
                             ))}
                         </div>
                     ) : filtered.length === 0 ? (
-                        <div className="py-24 text-center bg-white rounded-2xl border border-gray-100">
-                            <div className="text-6xl mb-5">📭</div>
-                            <h3 className="text-gray-900 font-bold text-xl mb-2">No results found</h3>
-                            <p className="text-gray-500 text-sm mb-6">Try adjusting your search or filter to find what you're looking for.</p>
+                        <div className="py-32 text-center bg-white rounded-[3rem] border border-slate-100 shadow-sm reveal">
+                            <div className="text-7xl mb-6 opacity-30">🔍</div>
+                            <h3 className="text-slate-900 font-black text-2xl mb-3 tracking-tight">No results matched your search</h3>
+                            <p className="text-slate-400 font-medium mb-10 max-w-sm mx-auto">Try different keywords or browse our top categories to find your next goal.</p>
                             <button onClick={() => { setSearch(''); setFilter('All') }}
-                                className="px-6 py-3 rounded-xl text-sm font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors">
-                                Clear all filters
+                                className="px-10 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-500/20 transition-soft">
+                                Reset Workspace
                             </button>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 reveal">
                             {filtered.map(c => <CourseCard key={c.id} course={c} />)}
                         </div>
                     )}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 /* ── Global reset ───────────────────────────── */
@@ -15,16 +15,66 @@ html {
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: #ffffff;
-  color: #111827;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Custom Utilities ────────────────────────── */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ── Transitions ────────────────────────────── */
+.transition-soft {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Shadows ────────────────────────────────── */
+.shadow-premium {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.02);
+}
+
+.shadow-premium-hover:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Glassmorphism ───────────────────────────── */
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Gradients ───────────────────────────────── */
+.grad-blue {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.grad-surface {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0) 0%, #f8fafc 100%);
 }
 
 /* ── Scroll reveal ──────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity .65s cubic-bezier(.16, 1, .3, 1),
-    transform .65s cubic-bezier(.16, 1, .3, 1);
+  transform: translateY(20px);
+  transition: opacity .65s cubic-bezier(.16, 1, .3, 1), transform .65s cubic-bezier(.16, 1, .3, 1);
 }
 
 .reveal.visible {
@@ -32,113 +82,89 @@ body {
   transform: none;
 }
 
-.reveal-d1 {
-  transition-delay: .08s;
-}
-
-.reveal-d2 {
-  transition-delay: .16s;
-}
-
-.reveal-d3 {
-  transition-delay: .24s;
-}
-
-/* ── Word-by-word hero animation ────────────── */
-@keyframes wordUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-    filter: blur(4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-    filter: blur(0);
-  }
-}
-
-.word {
-  display: inline-block;
-  animation: wordUp .55s cubic-bezier(.16, 1, .3, 1) both;
-}
-
-/* ── Infinite marquee ───────────────────────── */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee-inner {
-  display: flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.marquee-inner:hover {
-  animation-play-state: paused;
-}
-
-/* ── Pulse dot ──────────────────────────────── */
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1)
-  }
-
-  50% {
-    opacity: .5;
-    transform: scale(1.5)
-  }
-}
-
-.pulse {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* ── Float card ─────────────────────────────── */
+/* ── Animations ────────────────────────────── */
 @keyframes float {
 
   0%,
   100% {
-    transform: translateY(0)
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-8px)
+    transform: translateY(-10px);
   }
 }
 
-.float {
+.animate-float {
   animation: float 4s ease-in-out infinite;
 }
 
-/* ── Gradient text utility ──────────────────── */
-.grad {
-  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
-/* ── Glow button ────────────────────────────── */
-.btn-glow {
-  box-shadow: 0 0 0 0 #6366f140;
-  transition: box-shadow .3s, transform .2s;
+.shine-effect {
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-glow:hover {
-  box-shadow: 0 0 32px 4px #6366f140;
-  transform: translateY(-2px);
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
 }
 
-/* ── Glass card ─────────────────────────────── */
-.glass {
-  background: rgba(255, 255, 255, .03);
-  border: 1px solid rgba(255, 255, 255, .07);
-  backdrop-filter: blur(16px);
+.shine-effect:hover::after {
+  animation: shine 0.8s ease-in-out forwards;
+}
+
+/* ── Coursera-like Tabs ───────────────────────── */
+.tab-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.tab-link.active::after {
+  width: 100%;
+}
+
+/* ── Custom Scrollbar ────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

@@ -1,0 +1,53 @@
+URL: https://www.coursera.org/browse/language-learning
+Title: Language Learning Online Courses | Coursera
+Description: Choose from hundreds of free Language Learning courses or pay to earn a Course or Specialization Certificate. In language courses and Specializations, you’ll learn to speak, write, and listen effectively in major global languages, including ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/social-sciences
+Title: Social Sciences Online Courses | Coursera
+Description: Choose from hundreds of free Social Sciences courses or pay to earn a Course or Specialization Certificate. Social sciences Specializations and courses explore how populations form laws, make decisions, behave in groups, and structure their ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/arts-and-humanities
+Title: Arts and Humanities Online Courses | Coursera
+Description: Choose from hundreds of free Arts and Humanities courses or pay to earn a Course or Specialization Certificate. Specializations and courses in the arts and humanities (including fine arts, history, and philosophy) explore the historical context ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/physical-science-and-engineering
+Title: Physical Science and Engineering Online Courses | Coursera
+Description: Choose from hundreds of free Physical Science and Engineering courses or pay to earn a Course or Specialization Certificate. Physical science and engineering Specializations and courses teach the properties of the world around us, from core ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/browse/math-and-logic
+Title: Math and Logic Online Courses | Coursera
+Description: Choose from hundreds of free Math and Logic courses or pay to earn a Course or Specialization Certificate. Specializations and courses in math and logic teach sound approaches to solving quantifiable and abstract problems. You'll tackle logic ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/professional-certificates/google-cybersecurity
+Title: Google Cybersecurity Professional Certificate | Coursera
+Description: Offered by Google. Get on the fast track to a career in cybersecurity. In this certificate program, you'll learn in-demand skills, and get ... Enroll for free.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/career-academy/roles/data-scientist
+Title: Data Scientist Learning Paths: Courses and Resources by Skill Level | Coursera
+Description: Navigate your growth as a Data Scientist. Find courses and resources by skill level to support your career growth, whether you're just starting or looking to advance.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/career-academy/roles/data-analyst
+Title: Data Analyst Learning Paths: Courses and Resources by Skill Level | Coursera
+Description: Navigate your growth as a Data Analyst. Find courses and resources by skill level to support your career growth, whether you're just starting or looking to advance.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/career-academy/roles/machine-learning-engineer
+Title: Machine Learning Engineer Learning Paths: Courses and Resources by Skill Level | Coursera
+Description: Navigate your growth as a Machine Learning Engineer. Find courses and resources by skill level to support your career growth, whether you're just starting or looking to advance.
+Keywords: N/A
+---

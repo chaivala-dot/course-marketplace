@@ -36,152 +36,186 @@ function Spinner() {
 }
 
 export default function Home() {
-    const [courses, setCourses] = useState(MOCK_COURSES)
+    const [courses, setCourses] = useState([])
     const [loading, setLoading] = useState(true)
     const [filter, setFilter] = useState('All')
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        const apiUrl = import.meta.env.VITE_API_URL
-        if (!apiUrl) { setLoading(false); return } // No backend configured, use mock data
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
         axios.get(`${apiUrl}/api/courses`)
             .then(r => { if (Array.isArray(r.data) && r.data.length) setCourses(r.data) })
             .catch(() => { })
             .finally(() => setLoading(false))
-    }, [])
 
-    const safeCourses = Array.isArray(courses) ? courses : MOCK_COURSES
-    const filtered = filter === 'All' ? safeCourses : safeCourses.filter(c => c.category === filter)
+        // Simple intersection observer for reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible')
+                }
+            })
+        }, { threshold: 0.1 })
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+        return () => observer.disconnect()
+    }, [loading, filter])
+
+    const filtered = filter === 'All' ? courses : courses.filter(c => c.category === filter)
 
     return (
-        <div className="min-h-screen flex flex-col bg-white">
+        <div className="min-h-screen flex flex-col bg-white selection:bg-blue-100 selection:text-blue-900">
             <Navbar />
 
             {/* ═══════════════ HERO ═══════════════ */}
-            <section className="pt-[60px]" style={{ background: 'linear-gradient(135deg,#0056d2 0%,#1a1a6e 100%)' }}>
-                <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-16 md:py-20 flex flex-col md:flex-row items-center gap-10">
+            <section className="relative pt-24 pb-20 md:pt-32 md:pb-32 overflow-hidden grad-blue">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-white blur-[120px]" />
+                    <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[40%] rounded-full bg-blue-400 blur-[100px]" />
+                </div>
 
-                    {/* Left text */}
-                    <div className="flex-1 text-white">
-                        <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">
-                            Learn Without<br /><span className="text-yellow-300">Limits 🚀</span>
+                <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                    <div className="flex-1 text-center md:text-left reveal">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-semibold mb-6 animate-pulse">
+                            <span className="w-2 h-2 rounded-full bg-blue-400" />
+                            Over 10,000+ students joined this month
+                        </div>
+                        <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight text-balance">
+                            Master the Skills of the <span className="text-blue-300">Future</span>
                         </h1>
-                        <p className="text-blue-100 text-lg mb-8 max-w-lg">
-                            Explore 1000+ courses from expert instructors. Build job-ready skills at your own pace.
+                        <p className="text-blue-100 text-lg md:text-xl mb-10 max-w-xl font-medium leading-relaxed opacity-90">
+                            Access world-class education from top universities and industry leaders. Start your journey towards a career you love.
                         </p>
 
-                        {/* Inline search */}
-                        <form className="flex gap-2 max-w-lg" onSubmit={e => { e.preventDefault() }}>
-                            <input type="text" placeholder="What do you want to learn?"
-                                className="flex-1 px-4 py-3 rounded-xl text-gray-900 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-yellow-300 placeholder-gray-400" />
-                            <button type="submit"
-                                className="px-6 py-3 rounded-xl text-sm font-bold text-blue-700 bg-yellow-300 hover:bg-yellow-200 transition-colors whitespace-nowrap">
-                                Search
-                            </button>
-                        </form>
-
-                        <p className="text-blue-200 text-xs mt-4">Popular: React, Python, Data Science, UI/UX</p>
-                    </div>
-
-                    {/* Right illustration / stats */}
-                    <div className="flex-shrink-0 grid grid-cols-2 gap-3 w-full md:w-auto md:max-w-xs">
-                        {[
-                            { val: '10K+', label: 'Active Students', icon: '🎓' },
-                            { val: '500+', label: 'Expert Courses', icon: '📚' },
-                            { val: '100+', label: 'Instructors', icon: '👨‍🏫' },
-                            { val: '4.8★', label: 'Avg Rating', icon: '⭐' },
-                        ].map(s => (
-                            <div key={s.label} className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 text-center text-white">
-                                <div className="text-2xl mb-1">{s.icon}</div>
-                                <div className="text-xl font-black">{s.val}</div>
-                                <div className="text-blue-200 text-xs">{s.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════════════ PARTNER TRUST STRIP ═══════════════ */}
-            <section className="bg-gray-50 border-y border-gray-100 py-5">
-                <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-                    <p className="text-center text-gray-400 text-xs font-semibold uppercase tracking-widest mb-5">
-                        Trusted by learners working at
-                    </p>
-                    <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-                        {PARTNERS.map(p => (
-                            <span key={p} className="text-gray-400 font-black text-base md:text-lg tracking-tight hover:text-gray-600 transition-colors cursor-default">
-                                {p}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════════════ COURSES ═══════════════ */}
-            <section className="py-14 bg-white">
-                <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-                    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-                        <div>
-                            <h2 className="text-2xl md:text-3xl font-black text-gray-900">Featured Courses</h2>
-                            <p className="text-gray-500 text-sm mt-1">Handpicked by experts to jumpstart your career</p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <Link to="/courses" className="px-8 py-4 rounded-xl font-bold text-blue-700 bg-white hover:bg-blue-50 transition-soft shadow-xl shadow-blue-900/40 text-center">
+                                Browse All Courses
+                            </Link>
+                            <Link to="/instructor" className="px-8 py-4 rounded-xl font-bold text-white border border-white/30 hover:bg-white/10 transition-soft text-center backdrop-blur-sm">
+                                Become Instructor
+                            </Link>
                         </div>
-                        <Link to="/courses" className="text-blue-600 text-sm font-semibold hover:text-blue-700 whitespace-nowrap">
-                            View all courses →
-                        </Link>
+
+                        <div className="mt-12 flex flex-wrap justify-center md:justify-start items-center gap-8 opacity-70">
+                            {['Google', 'IBM', 'Microsoft', 'Meta'].map(p => (
+                                <span key={p} className="text-white font-black text-lg tracking-widest">{p}</span>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Category pills */}
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="md:w-[45%] lg:w-[40%] reveal animate-float delay-300 hidden md:block">
+                        <div className="relative p-6 rounded-[2.5rem] bg-gradient-to-br from-white/10 to-transparent border border-white/20 backdrop-blur-md shadow-2xl">
+                            <div className="rounded-[1.5rem] overflow-hidden shadow-inner border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+                                    alt="Learning" className="w-full grayscale-[20%] hover:grayscale-0 transition-soft duration-700" />
+                            </div>
+                            {/* Stats Card Overlay */}
+                            <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-premium border border-slate-100 reveal delay-500">
+                                <div className="text-blue-600 text-2xl font-black">4.9/5★</div>
+                                <div className="text-slate-500 text-xs font-bold uppercase tracking-wider">Top Rated Courses</div>
+                            </div>
+                            <div className="absolute -top-6 -right-6 bg-white p-5 rounded-2xl shadow-premium border border-slate-100 reveal delay-700">
+                                <div className="text-blue-600 text-2xl font-black">100+</div>
+                                <div className="text-slate-500 text-xs font-bold uppercase tracking-wider">Expert Mentors</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════ CATEGORIES ═══════════════ */}
+            <section className="py-20 bg-slate-50">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+                    <div className="text-center mb-16 reveal">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Explore Categories</h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto font-medium">Find the right path for your professional growth with our curated subject areas.</p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-3 mb-12 reveal">
                         {CATEGORIES.map(c => (
                             <button key={c} onClick={() => setFilter(c)}
-                                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-150
-                  ${filter === c
-                                        ? 'bg-blue-600 text-white shadow-sm'
-                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-soft
+                                ${filter === c
+                                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-400/30 -translate-y-0.5'
+                                        : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'}`}>
                                 {c}
                             </button>
                         ))}
                     </div>
 
-                    {/* 4-column grid */}
                     {loading ? <Spinner /> : filtered.length === 0 ? (
-                        <div className="py-20 text-center">
-                            <div className="text-5xl mb-4">📭</div>
-                            <p className="text-gray-500 font-medium">No courses found</p>
+                        <div className="py-20 text-center reveal">
+                            <div className="text-6xl mb-6 opacity-30">🔍</div>
+                            <p className="text-slate-400 text-lg font-semibold tracking-tight">No courses found in this category</p>
+                            <button onClick={() => setFilter('All')} className="mt-4 text-blue-600 font-bold hover:underline">Reset Filter</button>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 reveal">
                             {filtered.map(c => <CourseCard key={c.id} course={c} />)}
                         </div>
                     )}
+
+                    <div className="mt-20 text-center reveal">
+                        <Link to="/courses" className="inline-flex items-center gap-2 group text-blue-600 font-bold text-lg hover:text-blue-700 transition-soft">
+                            View all professional courses
+                            <span className="group-hover:translate-x-1 transition-transform">→</span>
+                        </Link>
+                    </div>
                 </div>
             </section>
 
-            {/* ═══════════════ FEATURE STRIP ═══════════════ */}
-            <section className="py-14 bg-gray-50 border-t border-gray-100">
+            {/* ═══════════════ WHY CHOOSE US ═══════════════ */}
+            <section className="py-24 bg-white border-t border-slate-100">
                 <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-                    <h2 className="text-2xl font-black text-gray-900 mb-10 text-center">Why learners choose CourseHub</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {FEATURES.map(f => (
-                            <div key={f.title} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="text-3xl mb-4">{f.icon}</div>
-                                <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        <div className="reveal">
+                            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight leading-tight">
+                                Invest in your career,<br />learn from the <span className="text-blue-600">best</span>.
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+                                {FEATURES.map(f => (
+                                    <div key={f.title} className="group">
+                                        <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition-soft">
+                                            {f.icon}
+                                        </div>
+                                        <h4 className="text-xl font-bold text-slate-900 mb-2">{f.title}</h4>
+                                        <p className="text-slate-500 text-sm leading-relaxed">{f.desc}</p>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+                        <div className="relative reveal">
+                            <div className="rounded-[3rem] overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Workspace" />
+                            </div>
+                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" />
+                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-700" />
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* ═══════════════ CTA BANNER ═══════════════ */}
-            <section className="py-16" style={{ background: 'linear-gradient(135deg,#0056d2 0%,#1a1a6e 100%)' }}>
-                <div className="max-w-[1400px] mx-auto px-4 md:px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Start learning today — free preview on every course</h2>
-                    <p className="text-blue-200 mb-8 max-w-xl mx-auto">Join 10,000+ learners building in-demand skills and landing their next role.</p>
-                    <Link to="/courses"
-                        className="inline-block px-10 py-4 rounded-xl font-bold text-blue-700 bg-yellow-300 hover:bg-yellow-200 shadow-xl hover:-translate-y-0.5 transition-all duration-200 text-base">
-                        Browse All Courses →
-                    </Link>
+            <section className="py-24 bg-slate-900 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+                </div>
+                <div className="max-w-[1400px] mx-auto px-4 md:px-6 text-center relative z-10 reveal">
+                    <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">Ready to start your journey?</h2>
+                    <p className="text-slate-400 text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Join millions of learners from around the world and start learning today with our expert-led courses.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <Link to="/courses"
+                            className="w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-2xl shadow-blue-500/20 transition-soft text-lg">
+                            Get Started for Free
+                        </Link>
+                        <Link to="/contact"
+                            className="w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-white border border-white/20 hover:bg-white/5 transition-soft text-lg">
+                            Contact Sales
+                        </Link>
+                    </div>
                 </div>
             </section>
 

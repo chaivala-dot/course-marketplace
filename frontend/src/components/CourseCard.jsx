@@ -87,7 +87,7 @@ export default function CourseCard({ course }) {
         <article
             onClick={() => navigate(`/course/${course.id}`)}
             className="group bg-white rounded-2xl border border-gray-100 overflow-hidden cursor-pointer
-            hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col shadow-sm"
+            shadow-premium shadow-premium-hover hover:-translate-y-1.5 transition-soft flex flex-col shine-effect"
         >
             {/* Thumbnail */}
             <div className="relative h-40 shrink-0 overflow-hidden">
@@ -102,8 +102,8 @@ export default function CourseCard({ course }) {
             </div>
 
             {/* Body */}
-            <div className="flex flex-col flex-1 p-4">
-                <h3 className="font-bold text-gray-900 text-sm leading-snug line-clamp-2 mb-1.5 group-hover:text-blue-600 transition-colors">
+            <div className="flex flex-col flex-1 p-5">
+                <h3 className="font-bold text-slate-900 text-[0.95rem] leading-snug line-clamp-2 mb-2 group-hover:text-blue-600 transition-soft">
                     {course.title}
                 </h3>
                 <p className="text-gray-400 text-xs leading-relaxed line-clamp-2 flex-1">
