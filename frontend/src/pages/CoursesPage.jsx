@@ -11,85 +11,85 @@ const MOCK = [
         id: 1, title: 'MSc Computer Science', category: 'Development', price: 74999,
         rating: '4.9', students: '12,450', instructor: 'Heriot-Watt University',
         description: 'Specialize in programming, data, and AI with a curriculum integrating certifications from IBM, Google, and Meta. No bachelor\'s degree needed.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3hjcLZKs6WDLRtIanu0iDj/c807e7f73c9ca896139d8236cff732fb/HWU-35571__1_.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3hjcLZKs6WDLRtIanu0iDj/c807e7f73c9ca896139d8236cff732fb/HWU-35571__1_.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 2, title: 'Master of Science in Computer Science', category: 'Development', price: 131250,
         rating: '4.8', students: '18,900', instructor: 'University of Colorado Boulder',
         description: 'Master core CS skills in algorithms, data structures, and ML. Explore electives in AI, robotics, and big data. No application or bachelor\'s needed.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1X771IxZ2TuOUa13p6dbmA/4ece73165e665107dc37c8532e418351/CU-Boulder-campus-hero.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1X771IxZ2TuOUa13p6dbmA/4ece73165e665107dc37c8532e418351/CU-Boulder-campus-hero.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 3, title: 'Master of Science in Artificial Intelligence', category: 'Data Science', price: 131250,
         rating: '4.9', students: '9,741', instructor: 'University of Colorado Boulder',
         description: 'Go beyond theory with a purpose-built Master\'s covering model building, hardware deployment, and ethics. No application or bachelor\'s degree needed.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/5y8x5poDFIB5OGNWgtLSJM/11ee3816b8972f5cd8cdf170088bc248/flatirons__1_.jpeg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/5y8x5poDFIB5OGNWgtLSJM/11ee3816b8972f5cd8cdf170088bc248/flatirons__1_.jpeg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 4, title: 'Master of Computer Science in Data Science', category: 'Data Science', price: 165200,
         rating: '4.8', students: '22,300', instructor: 'University of Illinois Urbana-Champaign',
         description: 'Build specialized knowledge of in-demand computer or data science skills. Explore topics such as AI and ML from a top-5 computer science school.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3KdKswaCqGVxcSUmhvxd8o/b599c89b58c3791dc78ea23390732374/UI-220613-MH-009-siebel-center-computer-science_2_compressed.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3KdKswaCqGVxcSUmhvxd8o/b599c89b58c3791dc78ea23390732374/UI-220613-MH-009-siebel-center-computer-science_2_compressed.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 5, title: 'Master of Science in Management (iMSM)', category: 'Business', price: 108900,
         rating: '4.7', students: '14,500', instructor: 'University of Illinois Urbana-Champaign',
         description: 'Launch your management career with essential leadership skills and career-ready credentials. Earn your master\'s degree in just 12 months.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6cmiWcU0XycCnPnz75ITAH/86cfb0454f99ba8cd758c63ba5dc2690/iMSM_MSMangement_GiesBuilding.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6cmiWcU0XycCnPnz75ITAH/86cfb0454f99ba8cd758c63ba5dc2690/iMSM_MSMangement_GiesBuilding.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 6, title: 'Master of Business Administration (iMBA)', category: 'Business', price: 227400,
         rating: '4.8', students: '31,200', instructor: 'University of Illinois Gies College',
         description: 'Boost your career and design a journey that fits your goals with focus areas in analytics, marketing, innovation and entrepreneurship.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/phdtZ838jtqiZ0OUP1Owr/69db523ca40841bc8b7ff3428608da99/imba_2.jpeg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/phdtZ838jtqiZ0OUP1Owr/69db523ca40841bc8b7ff3428608da99/imba_2.jpeg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 7, title: 'MBA in Business Analytics', category: 'Business', price: 20000,
         rating: '4.7', students: '8,600', instructor: 'O.P. Jindal Global University',
         description: 'Learn to lead in a data-driven world with India\'s No.1 private university and a world leader in online education. Includes R, Python, SQL & Tableau.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/2KjkhHW7nqZXcgc2XGgQVd/df58d5c462f71cb08ab1bbf347848dca/JGU--Bg-image-_Day_--Coursera.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/2KjkhHW7nqZXcgc2XGgQVd/df58d5c462f71cb08ab1bbf347848dca/JGU--Bg-image-_Day_--Coursera.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 8, title: 'Executive MBA', category: 'Business', price: 45000,
         rating: '4.9', students: '5,890', instructor: 'IIT Roorkee',
         description: 'Shape your IIT Roorkee MBA with 55+ electives. Dual specialisations. Top 10 in India (NIRF 2025). Designed for working professionals with 4+ years experience.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/7IxWLEmWIWrDIHZGihdRS9/b742d1aca3f9dca951e5df80b5a8a2f8/121004011141_iitroorkee.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/7IxWLEmWIWrDIHZGihdRS9/b742d1aca3f9dca951e5df80b5a8a2f8/121004011141_iitroorkee.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 9, title: 'BSc Data Science', category: 'Data Science', price: 146000,
         rating: '4.6', students: '7,210', instructor: 'University of Huddersfield',
         description: 'Launch your data science career with a world-class curriculum from the UK\'s top-ranked young university. Learn to analyze, model, and visualize data.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/bBITm62RYs0qgYzjaIbA0/5e09057a9f8fb1d4fea559472fe4ba61/University_Square_Student_Central-1.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/bBITm62RYs0qgYzjaIbA0/5e09057a9f8fb1d4fea559472fe4ba61/University_Square_Student_Central-1.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 10, title: 'Bachelor of Science in Computer Science', category: 'Development', price: 110000,
         rating: '4.8', students: '19,430', instructor: 'University of London',
         description: 'Build the foundation for a career in tech with core math, data, and programming skills. Specialise in cutting-edge topics such as ML, AI, or UX design.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1ALNQGlCTAxM5UF811PGu6/40d065b0da029c430a3dd5c62a978912/UoL-Campus-Header.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1ALNQGlCTAxM5UF811PGu6/40d065b0da029c430a3dd5c62a978912/UoL-Campus-Header.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 11, title: 'BSc Computer Science (BITS Pilani)', category: 'Development', price: 33000,
         rating: '4.9', students: '11,200', instructor: 'BITS Pilani',
         description: 'Build the foundation for a career in tech. Learn coding, data, and problem-solving skills while earning degree level credentials, fully online from India\'s top tech university.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/ThhOqGJGRGePlJlmBNBPM/b87dabf9fbdb504e7610bcf1a528f6a6/Auditorium_3.JPG?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/ThhOqGJGRGePlJlmBNBPM/b87dabf9fbdb504e7610bcf1a528f6a6/Auditorium_3.JPG?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 12, title: 'BSc Data Science & AI', category: 'Data Science', price: 29000,
         rating: '4.8', students: '6,700', instructor: 'IIT Guwahati',
         description: 'Become an IITian from wherever you are. Build a career in AI and data science with IIT Guwahati. Access India\'s most powerful supercomputers.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/4xOm8RG1NteSdBqh973gu6/c06540097c16c91b1238dab1d3888a9e/iitg8_2021.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/4xOm8RG1NteSdBqh973gu6/c06540097c16c91b1238dab1d3888a9e/iitg8_2021.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 13, title: 'M.A. in International Relations & Strategy', category: 'Business', price: 28000,
         rating: '4.7', students: '3,420', instructor: 'O.P. Jindal Global University',
         description: 'Learn from former ambassadors, diplomats & policymakers. Gain expertise in geopolitics, diplomacy & security strategy. Only online Indian MA combining all three.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/4lfMstGPQqZ2iBbAiCs8pY/a4f41fd7a9d7226d6c90d237def0a99d/JGU--Bg-image-_Day_--950x535px-min_3.png?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/4lfMstGPQqZ2iBbAiCs8pY/a4f41fd7a9d7226d6c90d237def0a99d/JGU--Bg-image-_Day_--950x535px-min_3.png?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
     {
         id: 14, title: 'MSc Management', category: 'Business', price: 82400,
         rating: '4.6', students: '4,900', instructor: 'University of Huddersfield',
         description: 'Advance your career with a Management Master\'s from an internationally AACSB-accredited business school. Learn to lead and build strategic skills online.',
-        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1IU3MjKcnuBr1bWljswOIV/ed57ac74086c125d601361bdd6fdcc18/University_Square_Student_Central.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=7&blur=50'
+        thumbnail: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1IU3MjKcnuBr1bWljswOIV/ed57ac74086c125d601361bdd6fdcc18/University_Square_Student_Central.jpg?auto=format%2Ccompress&dpr=1&w=400&h=300&q=75'
     },
 ]
 
