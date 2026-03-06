@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Show, useClerk } from '@clerk/react'
+import { SignedIn, SignedOut, useClerk } from '@clerk/react'
 
 const LINKS = ['Home', 'Courses', 'Dashboard', 'Contact']
 
@@ -29,14 +29,14 @@ export default function Footer() {
                                         className="text-blue-200 text-sm hover:text-white transition-colors">{l}</Link>
                                 </li>
                             ))}
-                            <Show when="signed-out">
+                            <SignedOut>
                                 <li>
                                     <button onClick={() => openSignIn()} className="text-blue-200 text-sm hover:text-white transition-colors">Log In</button>
                                 </li>
                                 <li>
                                     <button onClick={() => openSignUp()} className="text-blue-200 text-sm hover:text-white transition-colors">Sign Up</button>
                                 </li>
-                            </Show>
+                            </SignedOut>
                         </ul>
                     </div>
 
