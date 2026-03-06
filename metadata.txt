@@ -1,0 +1,59 @@
+URL: https://www.coursera.org/
+Title: Coursera | Courses, Professional Certificates, and Degrees Online
+Description: Learn in-demand skills with online courses and Professional Certificates from leading companies like Google, IBM, Meta, and Adobe. Explore flexible programs—from short courses to full degrees.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/business?utm_content=corp-to-home-for-enterprise&utm_campaign=website&utm_medium=coursera&utm_source=header&utm_term=b-out
+Title: Online Business Learning Platform | Coursera for Business
+Description: Upskill your team and boost growth with expert-led, AI-powered learning solutions and certification programs on our online platform for business.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/campus?utm_content=corp-to-landing-for-campus&utm_campaign=website&utm_medium=coursera&utm_source=header&utm_term=b-out
+Title: Online Learning Platform For Higher Education | Coursera
+Description: Build your curriculum with a leading online learning platform for higher education to boost employability and attract more students.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/government?utm_content=corp-to-landing-for-government&utm_campaign=website&utm_medium=coursera&utm_source=header&utm_term=b-out
+Title: Learning Platform for Government | Coursera for Government
+Description: Upskill your workforce with a government e-learning platform offering online courses from top universities and industry leaders for training government employees.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/degrees
+Title: Online Degrees and Postgraduate Studies from Top Universities | Coursera
+Description: Earn a Master's degree, a Bachelor's degree, or a Postgraduate credential from a top-ranked university at a breakthrough price. Study on your own schedule with 100% online degree or postgraduate programs. Learn from project-based courses and get direct feedback from your professors. When you graduate, you’ll receive the same university degree as students who attend class on campus.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/?authMode=login
+Title: Coursera | Online Courses & Credentials From Top Educators. Join for Free
+Description: Learn online and earn valuable credentials from top universities like Yale, Michigan, Stanford, and leading companies like Google and IBM. Join Coursera for free and transform your career with degrees, certificates, Specializations, & MOOCs in data science, computer science, business, and dozens of other topics.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/?authMode=signup
+Title: Coursera | Online Courses & Credentials From Top Educators. Join for Free
+Description: Learn online and earn valuable credentials from top universities like Yale, Michigan, Stanford, and leading companies like Google and IBM. Join Coursera for free and transform your career with degrees, certificates, Specializations, & MOOCs in data science, computer science, business, and dozens of other topics.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/courseraplus/special/india-holi-spring-2026
+Title: Coursera Plus | Unlimited Access to 10,000+ Online Courses
+Description: Invest in your professional goals with Coursera Plus. Get Unlimited access to over 90% of courses, Projects, Specializations, and Professional Certificates. Learn online and earn valuable credentials from top universities like Yale, Michigan, ...
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/professional-certificates/microsoft-generative-ai-engineering?utm_medium=coursera&utm_source=herobento&utm_campaign=2026Q1Holi
+Title: Microsoft Generative AI Engineering Professional Certificate | Coursera
+Description: Offered by Microsoft. Empower innovation using generative AI engineering. Build, fine-tune, and deploy generative AI models using Microsoft ... Enroll for free.
+Keywords: N/A
+---
+
+URL: https://www.coursera.org/career-academy
+Title: Explore Career Paths: Find Courses and Build Skills by Job Role | Coursera
+Description: Explore career paths and find the right courses to build essential skills. Explore job roles and access resources to start or advance your career.
+Keywords: N/A
+---
