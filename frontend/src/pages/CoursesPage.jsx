@@ -106,7 +106,9 @@ export default function CoursesPage() {
         const initQ = params.get('q')
         if (initQ) setSearch(initQ)
 
-        axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/courses`)
+        const apiUrl = import.meta.env.VITE_API_URL
+        if (!apiUrl) { setLoading(false); return } // No backend configured, use mock data
+        axios.get(`${apiUrl}/api/courses`)
             .then(r => { if (Array.isArray(r.data) && r.data.length) setCourses(r.data) })
             .catch(() => { })
             .finally(() => setLoading(false))
