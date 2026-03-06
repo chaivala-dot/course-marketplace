@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import { Show, useClerk } from '@clerk/react'
 
 const LINKS = ['Home', 'Courses', 'Dashboard', 'Contact']
 
 export default function Footer() {
+    const { openSignIn, openSignUp } = useClerk()
+
     return (
         <footer style={{ background: '#1E3A5F' }} className="text-white">
             <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-12">
@@ -26,6 +29,14 @@ export default function Footer() {
                                         className="text-blue-200 text-sm hover:text-white transition-colors">{l}</Link>
                                 </li>
                             ))}
+                            <Show when="signed-out">
+                                <li>
+                                    <button onClick={() => openSignIn()} className="text-blue-200 text-sm hover:text-white transition-colors">Log In</button>
+                                </li>
+                                <li>
+                                    <button onClick={() => openSignUp()} className="text-blue-200 text-sm hover:text-white transition-colors">Sign Up</button>
+                                </li>
+                            </Show>
                         </ul>
                     </div>
 

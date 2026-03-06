@@ -8,14 +8,14 @@ import CourseCard from '../components/CourseCard'
 const CATEGORIES = ['All', 'Development', 'Design', 'Business', 'Marketing', 'Data Science']
 
 const MOCK_COURSES = [
-    { id: 1, title: 'Full Stack Web Development Bootcamp', category: 'Development', price: 4999, rating: '4.8', students: '24,312', description: 'Master React, Node.js, databases and deployment with 5 real-world projects.', thumbnail: 'https://placehold.co/400x225/2563EB/white?text=Full+Stack' },
-    { id: 2, title: 'UI/UX Design: Zero to Pro', category: 'Design', price: 3499, rating: '4.7', students: '18,094', description: 'Figma, design systems, user research and portfolio projects.', thumbnail: 'https://placehold.co/400x225/7C3AED/white?text=UI+UX' },
-    { id: 3, title: 'Digital Marketing Mastery', category: 'Marketing', price: 2999, rating: '4.6', students: '11,450', description: 'SEO, paid ads, social media strategy and email marketing.', thumbnail: 'https://placehold.co/400x225/D97706/white?text=Marketing' },
-    { id: 4, title: 'Python for Data Science & ML', category: 'Data Science', price: 5499, rating: '4.9', students: '31,782', description: 'Pandas, NumPy, Scikit-learn and production ML pipelines.', thumbnail: 'https://placehold.co/400x225/059669/white?text=Data+Science' },
-    { id: 5, title: 'Business Strategy for Founders', category: 'Business', price: 1999, rating: '4.5', students: '7,231', description: 'Frameworks used by successful founders to scale businesses.', thumbnail: 'https://placehold.co/400x225/DC2626/white?text=Business' },
-    { id: 6, title: 'React Native: Build Mobile Apps', category: 'Development', price: 4499, rating: '4.8', students: '9,876', description: 'Cross-platform iOS & Android apps with Expo and React Native.', thumbnail: 'https://placehold.co/400x225/0891B2/white?text=React+Native' },
-    { id: 7, title: 'Advanced SQL & Database Design', category: 'Development', price: 2499, rating: '4.7', students: '14,203', description: 'Joins, indexes, query optimisation and schema design patterns.', thumbnail: 'https://placehold.co/400x225/1D4ED8/white?text=SQL' },
-    { id: 8, title: 'Google Analytics 4 Masterclass', category: 'Marketing', price: 1499, rating: '4.6', students: '8,540', description: 'GA4 setup, reporting, events and conversion tracking for businesses.', thumbnail: 'https://placehold.co/400x225/EA580C/white?text=Analytics' },
+    { id: 1, title: 'Full Stack Web Development Bootcamp', category: 'Development', price: 4999, rating: '4.8', students: '24,312', description: 'Master React, Node.js, databases and deployment with 5 real-world projects.' },
+    { id: 2, title: 'UI/UX Design: Zero to Pro', category: 'Design', price: 3499, rating: '4.7', students: '18,094', description: 'Figma, design systems, user research and portfolio projects.' },
+    { id: 3, title: 'Digital Marketing Mastery', category: 'Marketing', price: 2999, rating: '4.6', students: '11,450', description: 'SEO, paid ads, social media strategy and email marketing.' },
+    { id: 4, title: 'Python for Data Science & ML', category: 'Data Science', price: 5499, rating: '4.9', students: '31,782', description: 'Pandas, NumPy, Scikit-learn and production ML pipelines.' },
+    { id: 5, title: 'Business Strategy for Founders', category: 'Business', price: 1999, rating: '4.5', students: '7,231', description: 'Frameworks used by successful founders to scale businesses.' },
+    { id: 6, title: 'React Native: Build Mobile Apps', category: 'Mobile Dev', price: 4499, rating: '4.8', students: '9,876', description: 'Cross-platform iOS & Android apps with Expo and React Native.' },
+    { id: 7, title: 'Advanced SQL & Database Design', category: 'Development', price: 2499, rating: '4.7', students: '14,203', description: 'Joins, indexes, query optimisation and schema design patterns.' },
+    { id: 8, title: 'Google Analytics 4 Masterclass', category: 'Marketing', price: 1499, rating: '4.6', students: '8,540', description: 'GA4 setup, reporting, events and conversion tracking for businesses.' },
 ]
 
 const PARTNERS = ['Google', 'Microsoft', 'Meta', 'IBM', 'Amazon', 'Adobe']

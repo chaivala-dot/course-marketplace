@@ -1,4 +1,4 @@
-import { useUser, SignInButton } from '@clerk/react'
+import { useUser, useClerk } from '@clerk/react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -25,6 +25,7 @@ function ProgressBar({ value }) {
 
 export default function Dashboard() {
     const { isSignedIn, user } = useUser()
+    const { openSignIn } = useClerk()
 
     if (!isSignedIn) return (
         <div className="min-h-screen flex flex-col bg-gray-50">
@@ -34,11 +35,9 @@ export default function Dashboard() {
                     <div className="text-6xl mb-5">🔒</div>
                     <h2 className="text-2xl font-black text-gray-900 mb-3">Please Login First</h2>
                     <p className="text-gray-500 text-sm mb-7">Sign in to access your personalized dashboard and enrolled courses.</p>
-                    <SignInButton mode="modal">
-                        <button className="w-full py-3 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25">
-                            Sign In to Continue
-                        </button>
-                    </SignInButton>
+                    <button onClick={() => openSignIn()} className="w-full py-3 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/25">
+                        Sign In to Continue
+                    </button>
                 </div>
             </div>
             <Footer />
