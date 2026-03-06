@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { SignedIn, SignedOut, UserButton, useClerk } from '@clerk/react'
+import { UserButton, useClerk, useAuth } from '@clerk/react'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -8,6 +8,7 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const navigate = useNavigate()
     const { openSignIn, openSignUp } = useClerk()
+    const { isSignedIn } = useAuth()
 
     useEffect(() => {
         const fn = () => setScrolled(window.scrollY > 4)
@@ -55,15 +56,18 @@ export default function Navbar() {
 
                     {/* Auth */}
                     <div className="hidden md:flex items-center gap-2 ml-auto shrink-0">
-                        <SignedOut>
-                            <button onClick={() => openSignIn()} className="px-4 py-2 rounded-full text-sm font-semibold text-blue-700 border border-blue-600 hover:bg-blue-50 transition-all">
-                                Log In
-                            </button>
-                            <button onClick={() => openSignUp()} className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition-all">
-                                Join for Free
-                            </button>
-                        </SignedOut>
-                        <SignedIn><UserButton /></SignedIn>
+                        {!isSignedIn ? (
+                            <>
+                                <button onClick={() => openSignIn()} className="px-4 py-2 rounded-full text-sm font-semibold text-blue-700 border border-blue-600 hover:bg-blue-50 transition-all">
+                                    Log In
+                                </button>
+                                <button onClick={() => openSignUp()} className="px-4 py-2 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition-all">
+                                    Join for Free
+                                </button>
+                            </>
+                        ) : (
+                            <UserButton />
+                        )}
                     </div>
 
                     {/* Mobile burger */}
@@ -91,11 +95,14 @@ export default function Navbar() {
                             className="flex px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">{l}</Link>
                     ))}
                     <div className="flex gap-2 pt-3 border-t border-gray-100 mt-2">
-                        <SignedOut>
-                            <button onClick={() => { setMenuOpen(false); openSignIn() }} className="flex-1 py-2.5 rounded-full text-sm font-semibold text-blue-700 border border-blue-600">Log In</button>
-                            <button onClick={() => { setMenuOpen(false); openSignUp() }} className="flex-1 py-2.5 rounded-full text-sm font-semibold text-white bg-blue-600">Join Free</button>
-                        </SignedOut>
-                        <SignedIn><div className="flex justify-center w-full py-1"><UserButton /></div></SignedIn>
+                        {!isSignedIn ? (
+                            <>
+                                <button onClick={() => { setMenuOpen(false); openSignIn() }} className="flex-1 py-2.5 rounded-full text-sm font-semibold text-blue-700 border border-blue-600">Log In</button>
+                                <button onClick={() => { setMenuOpen(false); openSignUp() }} className="flex-1 py-2.5 rounded-full text-sm font-semibold text-white bg-blue-600">Join Free</button>
+                            </>
+                        ) : (
+                            <div className="flex justify-center w-full py-1"><UserButton /></div>
+                        )}
                     </div>
                 </div>
             </div>
