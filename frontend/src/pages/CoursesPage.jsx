@@ -106,7 +106,7 @@ export default function CoursesPage() {
         const initQ = params.get('q')
         if (initQ) setSearch(initQ)
 
-        axios.get('http://localhost:5000/api/courses')
+        axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/courses`)
             .then(r => { if (r.data?.length) setCourses(r.data) })
             .catch(() => { })
             .finally(() => setLoading(false))

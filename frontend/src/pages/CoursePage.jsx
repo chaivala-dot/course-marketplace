@@ -141,7 +141,7 @@ export default function CoursePage() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        axios.get(`http://localhost:5000/api/courses/${id}`)
+        axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/courses/${id}`)
             .then(r => setCourse(r.data))
             .catch(() => setCourse(null))
             .finally(() => setLoading(false))
