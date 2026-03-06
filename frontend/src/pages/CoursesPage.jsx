@@ -107,12 +107,13 @@ export default function CoursesPage() {
         if (initQ) setSearch(initQ)
 
         axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/courses`)
-            .then(r => { if (r.data?.length) setCourses(r.data) })
+            .then(r => { if (Array.isArray(r.data) && r.data.length) setCourses(r.data) })
             .catch(() => { })
             .finally(() => setLoading(false))
     }, [])
 
-    const filtered = courses.filter(c => {
+    const safeCourses = Array.isArray(courses) ? courses : MOCK
+    const filtered = safeCourses.filter(c => {
         const matchCat = filter === 'All' || c.category === filter
         const matchText = c.title.toLowerCase().includes(search.toLowerCase()) ||
             (c.description || '').toLowerCase().includes(search.toLowerCase())

@@ -43,12 +43,13 @@ export default function Home() {
     useEffect(() => {
         window.scrollTo(0, 0)
         axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/courses`)
-            .then(r => { if (r.data?.length) setCourses(r.data) })
+            .then(r => { if (Array.isArray(r.data) && r.data.length) setCourses(r.data) })
             .catch(() => { })
             .finally(() => setLoading(false))
     }, [])
 
-    const filtered = filter === 'All' ? courses : courses.filter(c => c.category === filter)
+    const safeCourses = Array.isArray(courses) ? courses : MOCK_COURSES
+    const filtered = filter === 'All' ? safeCourses : safeCourses.filter(c => c.category === filter)
 
     return (
         <div className="min-h-screen flex flex-col bg-white">
